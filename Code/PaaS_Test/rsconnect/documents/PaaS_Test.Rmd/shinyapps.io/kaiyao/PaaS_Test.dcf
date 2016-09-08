@@ -2,8 +2,8 @@ name: PaaS_Test
 account: kaiyao
 server: shinyapps.io
 appId: 124082
-bundleId: 549448
+bundleId: 551821
 url: https://kaiyao.shinyapps.io/PaaS_Test/
-when: 1473123049.43237
+when: 1473324087.83681
 asMultiple: FALSE
 asStatic: FALSE
