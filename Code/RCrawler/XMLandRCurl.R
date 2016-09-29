@@ -32,17 +32,12 @@ getNodeSet(xmlcard,"//phone//text()")
 
 #get all the xiaomi
 getNodeSet(xmlcard,'//phone[@os="android"]/text()')
-<<<<<<< HEAD
 getNodeSet(xmlcard,'/div/Allphone/phone[@os="ios" and @color="red"]/text()')
-=======
-
->>>>>>> origin/master
 
 
 
 getDatafromOnepage = function(pageurl)
 {
-<<<<<<< HEAD
   url.exists(pageurl)
   pagesource = getURL(pageurl,.encoding="utf-8");
   xmldoc = htmlParse(pagesource);
@@ -56,22 +51,6 @@ getDatafromOnepage = function(pageurl)
   
   strlens = nchar(rates);
   splitrates = substr(rates,7,strlens-1);
-=======
-  pagesource = getURL(start_url,.encoding="utf-8");
-  xmldoc = htmlParse(pagesource);
-  storenames = sapply(getNodeSet(xmldoc,'//div[contains(@data-mtd-showlog,@data-mtd-clicklog)]//div[@class="basic cf"]//a/text()'),xmlValue);
-  storenames
-  places =  sapply(getNodeSet(xmldoc,'//div[contains(@data-mtd-showlog,@data-mtd-clicklog)]/div[@class="tag-list"]/a[last()]/text()'),xmlValue);
-  places
-  
-  
-  rates = sapply(getNodeSet(xmldoc,'//div[contains(@data-mtd-showlog,@data-mtd-clicklog)]/div[@class="rate"]//span[@class="rate-stars"]'),xmlAttrs);
-  class(rates)
-  dim(rates)
-  newrates = rates[2,]
-  strlens = nchar(newrates);
-  splitrates = substr(newrates,7,strlens-1);
->>>>>>> origin/master
   finalrates = as.numeric(splitrates);
   
   onepagedata = data.frame(name = storenames,place = places,rate = finalrates);
@@ -84,18 +63,15 @@ AllData = NULL;
 #http://bj.meituan.com/category/meishi/all/page2
 for(i in 1:7)
 {
-<<<<<<< HEAD
   if(i==1)
   {
     url=start_url;
   }else
   {
+    
     url = paste0(start_url,"/all/page",i);
   }
   
-=======
-  url = paste0(start_url,"/all/page",i);
->>>>>>> origin/master
   message("Craw data from webpage:   ",url);
   onepagedata = getDatafromOnepage(url);
   AllData = rbind(AllData,onepagedata);
